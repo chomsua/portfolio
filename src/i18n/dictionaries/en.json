@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "Joshfield — A field of work by Josh",
+    "description": "From blurry problems to clear screens. Portfolio of Josh, a web and mobile UX/UI designer."
+  },
+  "header": {
+    "home": "Joshfield home",
+    "nav": "Main navigation",
+    "menu": "MENU",
+    "close": "CLOSE",
+    "languageLabel": "Choose language",
+    "status": "Open to internship 2027",
+    "statusAction": "Copy email address"
+  },
+  "toast": {
+    "copied": "Email address copied",
+    "copyFailed": "Couldn't copy. Please select it manually"
+  },
+  "placeholder": {
+    "eyebrow": "BUILD STEP 02",
+    "title": "Preparing the field.",
+    "body": "Design tokens, typefaces, grain texture and the shared header are in place. The footer and Home screen come next.",
+    "footerNote": "The C-02 footer arrives in the next step."
+  }
+}

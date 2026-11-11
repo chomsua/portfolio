@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "Joshfield — Josh의 포트폴리오",
+    "description": "흐릿한 문제를 선명한 화면으로. 웹·모바일 UX/UI 디자이너 Josh의 포트폴리오입니다."
+  },
+  "header": {
+    "home": "Joshfield 홈으로",
+    "nav": "주 메뉴",
+    "menu": "MENU",
+    "close": "CLOSE",
+    "languageLabel": "언어 선택",
+    "status": "Open to internship 2027",
+    "statusAction": "이메일 주소 복사"
+  },
+  "toast": {
+    "copied": "이메일 주소를 복사했어요",
+    "copyFailed": "복사하지 못했어요. 직접 선택해 주세요"
+  },
+  "placeholder": {
+    "eyebrow": "BUILD STEP 02",
+    "title": "들판을 고르는 중입니다.",
+    "body": "디자인 토큰, 서체, 그레인 텍스처, 공통 헤더를 먼저 깔았어요. 다음 단계에서 푸터와 Home 화면이 이어집니다.",
+    "footerNote": "C-02 푸터는 다음 단계에서 만들어요."
+  }
+}

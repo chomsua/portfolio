@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Joshfield 디자인 토큰 (기획서 4장)
+   - 색은 "70% paper(크림) / 25% cobalt·sky·field / 5% dusk(주황)"
+   - dusk는 화면당 한 곳만: 현재 위치 점, "연락 가능" 배지, 포커스 테두리
+   ========================================================================== */
+@theme {
+  /* 4-1. 컬러 */
+  --color-paper: #f4efe4; /* 기본 배경 */
+  --color-ink: #172350; /* 본문 글자, 아이콘 */
+  --color-cobalt: #2340a0; /* 푸터 배경, 링크, 강조 제목 */
+  --color-sky: #a9cbe0; /* 보조 배경, 하늘 레이어 (작은 글자에 쓰지 않음) */
+  --color-field: #3e7b3a; /* 태그, 잔디 레이어, 호버 표시 */
+  --color-dusk: #e59a52; /* 화면당 한 곳 (작은 글자에 쓰지 않음) */
+  --color-line: rgb(23 35 80 / 0.15); /* 구분선, 테두리 */
+
+  /* 4-2. 서체: 영문 서체를 앞에 두어 영문 글자는 영문 서체가, 한글은 국문 서체가 맡는다 */
+  --font-serif: var(--font-instrument-serif), var(--font-noto-serif-kr), "Times New Roman", serif;
+  --font-sans: var(--font-inter), "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* 7-1. 브레이크포인트: Mobile 0–767 / Tablet 768–1279 / Desktop 1280+ */
+  --breakpoint-md: 48rem; /* 768px */
+  --breakpoint-lg: 80rem; /* 1280px */
+  --breakpoint-xl: 96rem;
+
+  /* 4-4. 모션 */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-focus: 600ms;
+  --duration-hover: 300ms;
+  --duration-page: 400ms;
+}
+
+/* ==========================================================================
+   4-2. 타이포그래피 단계
+   데스크톱/모바일 값은 기획서 그대로, 태블릿 구간은 그 사이를 부드럽게 잇는다(clamp).
+   ========================================================================== */
+@utility text-display {
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 1.2rem + 4.8vw, 5rem); /* 44 → 80px */
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+@utility text-h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 1.1rem + 2.6vw, 3rem); /* 32 → 48px */
+  line-height: 1.15;
+}
+@utility text-h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 1.05rem + 1.4vw, 2rem); /* 24 → 32px */
+  line-height: 1.25;
+}
+@utility text-h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.4;
+  @media (width >= 48rem) {
+    font-size: 1.25rem; /* 20px */
+  }
+}
+@utility text-body {
+  font-family: var(--font-sans);
+  font-size: 1rem; /* 16px */
+  line-height: 1.7;
+  @media (width >= 48rem) {
+    font-size: 1.0625rem; /* 17px */
+  }
+}
+@utility text-caption {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.5;
+  @media (width >= 48rem) {
+    font-size: 0.875rem; /* 14px */
+  }
+}
+@utility text-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  @media (width >= 48rem) {
+    font-size: 0.75rem; /* 12px */
+  }
+}
+
+/* 7-1. 그리드 컨테이너: 좌우 여백 20 / 32 / auto, 콘텐츠 최대 1200px */
+@utility container-site {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: calc(75rem + 2 * 2rem);
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* ==========================================================================
+   기본 스타일
+   ========================================================================== */
+@layer base {
+  html {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    word-break: keep-all; /* 한글이 단어 중간에서 끊기지 않게 */
+    overflow-wrap: anywhere;
+  }
+
+  ::selection {
+    background-color: var(--color-sky);
+    color: var(--color-ink);
+  }
+
+  /* 7-4. 키보드 포커스: dusk색 2px로 분명하게 */
+  :focus-visible {
+    outline: 2px solid var(--color-dusk);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* 7-4. 동작 줄이기: 블러·시차·확대를 끄고 짧은 전환만 남긴다 */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   4-3. 그레인 오버레이: 화면 전체에 노이즈를 4~6%로 고정
+   이미지 파일 없이 작은 SVG 노이즈 타일을 반복해 용량을 아낀다.
+   ========================================================================== */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.4 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+}
+
+/* 화면낭독기 전용 텍스트 */
+.sr-only-focusable:not(:focus):not(:focus-within) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
