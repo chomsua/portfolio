@@ -6,6 +6,7 @@ import { fontVariables } from "../fonts";
 import { hasLocale, locales, localizePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { Header } from "@/components/header/Header";
+import { Footer } from "@/components/footer/Footer";
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { ToastProvider } from "@/components/toast/ToastProvider";
 
@@ -37,6 +38,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
         <ToastProvider>
           <Header lang={lang} dict={dict.header} toast={dict.toast} />
           {children}
+          <Footer lang={lang} dict={dict.footer} toast={dict.toast} />
         </ToastProvider>
         <GrainOverlay />
       </body>

@@ -90,7 +90,7 @@ export function MobileMenu({ id, open, onClose, lang, section, dict, onContact, 
         </div>
       </nav>
 
-      <HorizonMini className="block h-28 w-full shrink-0" />
+      <HorizonMini className="h-40 w-full shrink-0" />
     </div>
   );
 }

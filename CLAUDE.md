@@ -59,7 +59,9 @@ src/app/[lang]/page.tsx      Home
 src/app/globals.css          디자인 토큰 + 기본 스타일
 src/app/fonts.ts             next/font 설정
 src/components/header/       C-01 헤더 (Logo, LanguageSwitch, MobileMenu, StatusBadge)
+src/components/footer/        C-02 Horizon Footer (풍경 시차, 걷는 인물, 한 줄 메시지, 시간대 하늘)
 src/components/toast/        이메일 복사 토스트
+scripts/generate-horizon.mjs 판화풍 풍경 SVG(public/horizon/) + 경계 능선 생성기
 src/i18n/                    언어 설정, 문구 파일
 src/lib/site.ts              이메일·메뉴 등 사이트 공통 정보
 ```
@@ -68,13 +70,16 @@ src/lib/site.ts              이메일·메뉴 등 사이트 공통 정보
 
 - [x] 1. 기획서 → `docs/spec.md`, 이 파일
 - [x] 2. 프로젝트 생성 + 토큰·서체·그레인 오버레이 + C-01 헤더
-- [ ] 3. C-02 푸터 (풍경 레이어와 걸어가는 인물은 임시 도형으로)
+- [x] 3. C-02 푸터 (풍경은 생성기로 만든 판화풍 SVG, 인물은 관절 프레임 — 손그림 나오면 교체)
 - [ ] 4. P-01 Home → P-02 Work 목록(슬롯 5개, 더미 MDX) → P-03 상세 템플릿 + 점 내비게이션
 - [ ] 5. P-04 Research, P-05 About, P-06 404
 - [ ] 6. 영문(`/en`) 문구 채우기, "View in English" 안내
 - [ ] 7. 접근성·성능 점검 후 Vercel 배포
 
 ## 작업 규칙
+
+- 풍경 일러스트는 레퍼런스 R1(코발트 바탕 + 크림 판화 선)이 기준. 평면 도형·단색 덩어리로 대충 그리지 말 것
+- 풍경을 고치면 `node scripts/generate-horizon.mjs` 다시 실행
 
 - 확인 명령: `npm run lint`, `npx tsc --noEmit`, `npm run build`
 - 새 라우트를 만든 뒤 타입 오류(`PageProps` 등)가 나면 `npx next typegen`

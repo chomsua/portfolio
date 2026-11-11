@@ -52,17 +52,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
             <p className="text-label">Label · 2026 · MOBILE APP · UX LEAD</p>
           </div>
         </section>
-
-        <div className="h-[60vh]" aria-hidden="true" />
       </main>
-
-      {/* 임시 푸터 앵커: CONTACT 메뉴가 이동할 곳. 3단계에서 C-02 Horizon Footer로 교체 */}
-      <footer id="footer" tabIndex={-1} className="bg-cobalt py-24 text-paper outline-none">
-        <div className="container-site">
-          <p className="text-label opacity-70">C-02 · HORIZON FOOTER</p>
-          <p className="text-h2 mt-4">{t.footerNote}</p>
-        </div>
-      </footer>
     </>
   );
 }

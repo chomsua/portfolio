@@ -17,9 +17,28 @@
     "copyFailed": "Couldn't copy. Please select it manually"
   },
   "placeholder": {
-    "eyebrow": "BUILD STEP 02",
-    "title": "Preparing the field.",
-    "body": "Design tokens, typefaces, grain texture and the shared header are in place. The footer and Home screen come next.",
-    "footerNote": "The C-02 footer arrives in the next step."
+    "eyebrow": "BUILD STEP 03",
+    "title": "Drawing the edge of the field.",
+    "body": "Tokens, typefaces, grain and the shared header are in, and now the engraved horizon footer. Scroll all the way down."
+  },
+  "footer": {
+    "tagline": "A designer bringing blurry problems into focus",
+    "location": "Seoul, KR",
+    "copyEmail": "Copy email address",
+    "navigate": "NAVIGATE",
+    "elsewhere": "ELSEWHERE",
+    "sayHello": "SAY HELLO",
+    "newTab": "opens in a new tab",
+    "formIntro": "No newsletter — one line is plenty.",
+    "name": "Name",
+    "email": "Email",
+    "message": "One-line message",
+    "messagePlaceholder": "Tell me what you'd like to walk through",
+    "send": "Send",
+    "sent": "Your mail app is open — just hit send!",
+    "edge": "You've reached the edge of Joshfield.",
+    "designedBy": "Designed & built by",
+    "lastUpdated": "Last updated",
+    "backToTop": "Back to top"
   }
 }
